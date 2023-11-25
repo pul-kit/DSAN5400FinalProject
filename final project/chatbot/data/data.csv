@@ -1,0 +1,4 @@
+Question,Answer
+What are the limited-support guidelines for mobile browsers on tablet devices?,"Sign in to ask questions, follow content, and engage with the Community"
+What is Limited Browser Support?,"Canvas supports the latest two versions of the most popular desktop browsers for Canvas. Many users also rely on mobile devices. Native Canvas apps support a limited set of features on mobile, but the apps don't cover all Canvas functionality."
+How quickly will qualifying mobile-browser issues be fixed?,"Canvas engineering teams do not fully support mobile browsers for Canvas but will ensure that critical features and functions work for tablet devices (screen sizes 7.9"" or higher used in landscape mode) running the most recent version of Safari (iOS) and Chrome (Android)."
