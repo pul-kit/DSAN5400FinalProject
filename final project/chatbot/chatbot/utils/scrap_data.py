@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import csv
 
 # Replace 'url' with the actual URL of the website you want to scrape
-url = "https://community.canvaslms.com/t5/Canvas-Basics-Guide/What-are-the-limited-support-guidelines-for-mobile-browsers-on/ta-p/389121"
+url = "https://community.canvaslms.com/t5/Canvas-Basics-Guide/tkb-p/basics"
 response = requests.get(url)
 print("response: ", response)
 
