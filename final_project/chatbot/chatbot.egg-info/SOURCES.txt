@@ -1,0 +1,16 @@
+README.md
+setup.py
+chatbot/__init__.py
+chatbot/chatbot.py
+chatbot.egg-info/PKG-INFO
+chatbot.egg-info/SOURCES.txt
+chatbot.egg-info/dependency_links.txt
+chatbot.egg-info/top_level.txt
+chatbot/bin/__init__.py
+chatbot/bin/main.py
+chatbot/search_engine/__init__.py
+chatbot/search_engine/tf_idf_searcher.py
+chatbot/utils/__init__.py
+chatbot/utils/langchain_API.py
+chatbot/utils/scrap_data.py
+tests/tests.py
