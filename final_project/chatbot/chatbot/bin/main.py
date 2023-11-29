@@ -9,26 +9,28 @@ from search_engine.tf_idf_searcher import SearchEngine
 
 from eval.eval import get_test_ids, get_seach_engine_ids, evaluate
 
-
-
+from utils.langchain_API import generate
 
 if __name__ == '__main__':
     query = 'how to use canvas?'
     searcher = SearchEngine()
 
-    print(searcher.search(query))
-    
+    context = ','.join(searcher.search(query))
+
+    answer = generate(query, context)
+
+    print(answer)
 
     # code to evaluate search engine 
-    test_ids = get_test_ids()
-    search_engine_ids = get_seach_engine_ids() 
+    # test_ids = get_test_ids()
+    # search_engine_ids = get_seach_engine_ids() 
 
-    prec, recall, f1, MAP = evaluate(test_ids, search_engine_ids) 
-    print(f'\nEvaluation metrics:')
-    print(f'Precision: {prec}')
-    print(f'Recall: {recall}')
-    print(f'F-1 score: {f1}')
-    print(f'Mean Average Precision (MAP) score: {MAP}\n')
+    # prec, recall, f1, MAP = evaluate(test_ids, search_engine_ids) 
+    # print(f'\nEvaluation metrics:')
+    # print(f'Precision: {prec}')
+    # print(f'Recall: {recall}')
+    # print(f'F-1 score: {f1}')
+    # print(f'Mean Average Precision (MAP) score: {MAP}\n')
 
-    print(f'True document ids for test queries: {test_ids}')
-    print(f'Search engine predictions for doc_ids of test queries: {search_engine_ids}\n')
+    # print(f'True document ids for test queries: {test_ids}')
+    # print(f'Search engine predictions for doc_ids of test queries: {search_engine_ids}\n')
