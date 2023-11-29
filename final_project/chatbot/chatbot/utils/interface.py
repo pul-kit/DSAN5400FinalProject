@@ -1,3 +1,4 @@
+import csv
 
 def welcome_message():
     print("Hello! Welcome to an AI assistant designed for Canvas, Turnitin and Zoom!")
@@ -14,6 +15,6 @@ def ask_for_rating():
     rating = input("Was I helpful? Let me know how I can be improved.")
     #TODO Replace File path with actual path
     with open("../rating.csv", 'a', newline='') as csv:
-        csv_writer = csv.writer(csv)
+        csv_writer = csv.write(csv)
         csv_writer.writerow([rating])
     print(f'Data appended to CSV file successfully.')    
