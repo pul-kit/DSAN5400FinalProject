@@ -1,6 +1,3 @@
-from langchain.chains import LLMChain, LLMRequestsChain
-from langchain.llms import OpenAI
-from langchain.prompts import PromptTemplate
 import openai
 
 # template = """Between >>> and <<< are the raw search result text from the website.
