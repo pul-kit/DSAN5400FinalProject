@@ -18,7 +18,7 @@ if __name__ == '__main__':
         description="Get user query and whether to evaluate or not."
     )
     parser.add_argument("-q", "--query", required=True, help="Enter your query.")
-    parser.add_argument("-e", "--eval", required=True, help="Prints performance of the search engine. Enter true or false.")
+    parser.add_argument("-e", "--eval", help="Prints performance of the search engine. Enter true or false.")
     args = parser.parse_args()
 
     welcome_message()
