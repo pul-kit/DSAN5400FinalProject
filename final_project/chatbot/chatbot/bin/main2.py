@@ -46,6 +46,7 @@ if __name__ == '__main__':
         else:
             searcher = SearchEngine()
             context = ','.join(searcher.search(user_input))
+            context = context[0:4000]
             answer = generate(user_input, context)
             print(answer)
             ask_for_rating()
