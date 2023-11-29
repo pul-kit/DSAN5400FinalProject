@@ -15,6 +15,5 @@ def ask_for_rating():
     rating = input("Was I helpful? Let me know how I can be improved.")
     #TODO Replace File path with actual path
     with open("../rating.csv", 'a', newline='') as csv:
-        csv_writer = csv.write(csv)
-        csv_writer.writerow([rating])
+        csv.write(rating)
     print(f'Data appended to CSV file successfully.')    
