@@ -88,7 +88,20 @@ def evaluate(true_ids, search_engine_ids):
 
     assert len(true_ids) == len(search_engine_ids), 'The lists of doc ids are not of equal length. Cannot compare.'
 
-    # compare search engine id list with true id list 
+    true = set(true_ids)
+    predicted = set(search_engine_ids)
+
+    # calculate True Positives, False Positives, and False Negatives
+    true_positives = len(true.intersection(predicted))
+    false_positives = len(predicted - true)
+    false_negatives = len(true - predicted)
+
+    # calculate Precision, Recall, and F-1 Score
+    precision = true_positives / (true_positives + false_positives)
+    recall = true_positives / (true_positives + false_negatives)
+    f1_score = 2 * (precision * recall) / (precision + recall)
+
+    # calculate MAP score (Mean Average Precision: avg of the prec values obtained at different recall levels) 
     predictions = [] 
     for i in range(len(true_ids)):
         if true_ids[i] == search_engine_ids[i]:
@@ -101,12 +114,6 @@ def evaluate(true_ids, search_engine_ids):
     # list of binary true values 
     true_values = [1] * len(predictions)
 
-    # calculate precision, recall, and f-1 scores 
-    precision = metrics.precision_score(true_values, predictions)
-    recall = metrics.recall_score(true_values, predictions)
-    f1_score = metrics.f1_score(true_values, predictions)
-
-    # calculate MAP score (Mean Average Precision: avg of the prec values obtained at different recall levels) 
     num_relevant_docs = sum(true_values)
     MAP = 0.0
     num_correct_predictions = 0
@@ -119,9 +126,9 @@ def evaluate(true_ids, search_engine_ids):
 
     if num_relevant_docs > 0:
         MAP /= num_relevant_docs
-    
 
     return precision, recall, round(f1_score, 2), round(MAP, 2) 
+
 
 
         
