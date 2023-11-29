@@ -10,8 +10,8 @@ from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 from nltk.stem import PorterStemmer
 
-# nltk.download('punkt')
-# nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('stopwords')
 
 
 # initialize a TfidfVectorizer
@@ -53,6 +53,41 @@ class SearchEngine:
                 scores.append((doc_id, score))
             scores = sorted(scores, key=lambda x: x[1], reverse=True)
             return index[str(scores[0][0])], index[str(scores[1][0])]
+
+    
+    def get_top_docid(self, query):
+        with open('../vectorizer/tfidf_vectorizer.pkl', 'rb') as f:
+            vectorizer = pickle.load(f)
+        
+        with open('../indexes/index.json', 'r') as f:
+            index = json.load(f)
+        
+        with open('../indexes/inverted_index.json', 'r') as f:
+            inverted_index = json.load(f)
+        
+        # Search the query using inverted index
+        tokens = self.text_preprocessing(query)
+        docs = []
+        for token in tokens:
+            docs.append(inverted_index[token])
+        docs = set.intersection(*map(set, docs))
+
+        # Rank the documents using TF-IDF
+        if len(docs) == 0:
+            return 'Sorry, I cannot find the answer to your question. Please try another question.'
+        elif len(docs) == 1:  
+            return list(docs)[0]
+        else:
+            query_vec = vectorizer.transform([query])
+            scores = []
+            for doc_id in docs:
+                doc_vec = vectorizer.transform([index[str(doc_id)]])
+                score = cosine_similarity(query_vec, doc_vec)
+                scores.append((doc_id, score))
+            scores = sorted(scores, key=lambda x: x[1], reverse=True)
+       
+            top_docid = scores[0][0]
+            return top_docid
 
 
 
