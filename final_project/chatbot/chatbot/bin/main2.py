@@ -7,7 +7,7 @@ parent_dir = os.path.abspath(os.path.join(current_dir, '..'))
 sys.path.append(parent_dir)
 
 from search_engine.tf_idf_searcher import SearchEngine
-from utils.interface import welcome_message, display_bot_response, ask_for_rating
+from utils.interface import display_bot_response, ask_for_rating
 from eval.eval import get_test_ids, get_seach_engine_ids, evaluate
 from utils.langchain_API import generate
 
@@ -17,18 +17,18 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description="Get user query and whether to evaluate or not."
     )
-    parser.add_argument("-q", "--query", required=True, help="Enter your query.")
-    parser.add_argument("-e", "--eval", help="Prints performance of the search engine. Enter true or false.")
+    parser.add_argument("-q", "--query", required=True, help="Enter your query. Type 'help' for instructions, 'data' for data sources, 'exit' to exit")
+    parser.add_argument("-e", "--eval", help="Prints performance metrics of the search engine. Enter true or false.")
     args = parser.parse_args()
 
-    welcome_message()
     while True:
         user_input = args.query
 
         # Help user if input is help
         if user_input.lower() == 'help':
-            display_bot_response("I am a bot that has been trained on FAQs about Canvas, Turnitin and Zoom. I don't have the capabliity to remember previous inputs. Type 'data' to know more about my training data.")
-        
+            display_bot_response("I am a bot that has been trained on FAQs about Canvas, Turnitin and Zoom. I don't have the capabliity to remember previous inputs.")
+            break
+            
         # Exit if input is exit 
         elif user_input.lower() == 'exit':
             display_bot_response("Goodbye!")
