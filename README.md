@@ -11,3 +11,4 @@ This project can by run through the following steps -
 3. The query is the question.
 4. The eval is if you want the program to print the test performance of the search engine.
 
+![Architecture of the ChatBot] (https://drive.google.com/file/d/1JLBllR13iKztNdnKSaEp9WwVG1KgXLkp/view?usp=sharing)
