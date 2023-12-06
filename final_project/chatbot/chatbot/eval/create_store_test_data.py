@@ -9,6 +9,9 @@ sys.path.append(parent_dir)
 from eval import create_test_dataset
 
 def store_data_in_csv(): 
+    """ 
+    Stores test data in a CSV file with columns for document ID and document content.
+    """
     test, _ = create_test_dataset()
 
     csv_file_path = 'test_data.csv'
@@ -31,7 +34,9 @@ def store_data_in_csv():
 
 
 def store_queries_in_txt(): 
-
+    """ 
+    Stores test queries in a text file.
+    """
     txt_file_path = 'test_queries.txt'
 
     _, queries = create_test_dataset()
