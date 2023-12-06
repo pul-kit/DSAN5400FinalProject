@@ -13,7 +13,11 @@ search_engine = SearchEngine()
 
 
 def create_test_dataset(): 
-
+    """
+    Generates a test dataset from a JSON file containing query and document data.
+    :return : A dictionary containing a subset of the original dataset, with only the first 20 entries.
+    :return : A list of tuples, each containing a document ID and its corresponding query extracted from the dataset.
+    """
     json_file_path = '../indexes/index.json'
 
     if os.path.exists(json_file_path):
@@ -48,6 +52,10 @@ def create_test_dataset():
 
 
 def get_test_queries(): 
+    """
+    Retrieves a list of test queries generated from a test dataset.
+    :return : A list of test queries.
+    """
     _ , query_list = create_test_dataset() 
     querys = []
 
@@ -58,6 +66,10 @@ def get_test_queries():
 
 
 def get_test_ids(): 
+    """ 
+    Retrieves a list of test document IDs from the test dataset.
+    :return : A list of document IDs.
+    """
     test_dataset, _ = create_test_dataset()
     keys = list(test_dataset.keys())
     test_ids = [int(num) for num in keys]
@@ -66,7 +78,10 @@ def get_test_ids():
 
 
 def get_seach_engine_ids(): 
-
+    """ 
+    Ouputs a list of predicted document IDs, by inputing the test queries into SearchEngine object.
+    : return : A list of document IDs.
+    """
     query_list = get_test_queries()
 
     doc_ids = []
