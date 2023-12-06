@@ -7,9 +7,10 @@ Turnitin: https://www.turnitin.com/help_pages/instructor_faq.asp?
 
 ### This project can by run through the following steps:
 1. Navigate to the bin of this project on your terminal.
-2. Type "python main.py -q <query> -e <eval>
-3. The query is the question.
-4. The eval is if you want the program to print the test performance of the search engine.
+2. Type:
+        python main.py -q <query> -e <eval>
+4. Query is the user question.
+5. Eval is to print the test performance of the search engine.
 
 ### Chatbot design: 
 1. Data is scraped from FAQ pages
@@ -22,6 +23,6 @@ to gain query/document pairs for questions about Canvas, Turnitin, and Zoom.
 ![Architecture of the ChatBot](https://i.imgur.com/V30q1Ql.png)
 
 ### Evaluation of search engine performance: 
-For a text dataset comprised of 20 queries, the search engine output is evaluated against the true document ID associated with each test query, using precision, recall, f-1, and MAP score metrics. Users can view these metrics using the evaluation argument tag -e: 
+For a text dataset comprised of 20 queries, the search engine output is evaluated against the true document ID associated with each test query, using precision, recall, f-1, and MAP score metrics. Users can view these metrics using the evaluation argument tag -e.
 
-    python main.py -q <query> -e <eval>
+
