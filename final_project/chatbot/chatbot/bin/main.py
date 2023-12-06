@@ -9,7 +9,7 @@ sys.path.append(parent_dir)
 from search_engine.tf_idf_searcher import SearchEngine
 from utils.interface import display_bot_response, ask_for_rating
 from eval.eval import get_test_ids, get_seach_engine_ids, evaluate
-from utils.langchain_API import generate
+from utils.openai_API import generate
 
 
 
