@@ -14,8 +14,6 @@ nltk.download('punkt')
 nltk.download('stopwords')
 
 
-# initialize a TfidfVectorizer
-
 class SearchEngine:
 
     def __init__(self):
@@ -23,6 +21,11 @@ class SearchEngine:
 
 
     def search(self, query):
+        """ 
+        Searches for relevant documents based on the input query using a TF-IDF-based search engine.
+        :param query : (str) The input query for document search.
+        :result : (str) The top ranked document(s) based on the TF-IDF scores.
+        """
         with open('../vectorizer/tfidf_vectorizer.pkl', 'rb') as f:
             vectorizer = pickle.load(f)
         
@@ -56,6 +59,11 @@ class SearchEngine:
 
     
     def get_top_docid(self, query):
+        """ 
+        Retrieves the top-ranked document ID for a given query using a TF-IDF-based search engine.
+        :param query : (str) The input query for document search.
+        :return : (str) The document ID with the highest TF-IDF score.
+        """
         with open('../vectorizer/tfidf_vectorizer.pkl', 'rb') as f:
             vectorizer = pickle.load(f)
         
@@ -90,10 +98,10 @@ class SearchEngine:
             return top_docid
 
 
-
-
-
     def update(self):
+        """ 
+        Updates the search engine by adding new documents from CSV files in the specified data path.
+        """
         data_path = '../data'
         documents = []
         id = 0
@@ -108,9 +116,6 @@ class SearchEngine:
                     documents.append(t)
                     index[id] = t
                     id += 1
-                # documents.append(text.str.cat(sep=' '))
-                # index[id] = text.str.cat(sep=' ')
-                # id += 1
         
         
         vectorizer = TfidfVectorizer(stop_words='english')
@@ -138,6 +143,12 @@ class SearchEngine:
 
 
     def text_preprocessing(self, text):
+        """ 
+        Performs text preprocessing on the input text, including tokenization, lowercase conversion, 
+        removal of non-alphabetic tokens, and stemming.
+        :param text : (str) The input text to be preprocessed.
+        :return : (set) A set of processed tokens after text preprocessing.
+        """
         stop_words = set(stopwords.words('english'))
         stemmer = PorterStemmer()
         tokens = word_tokenize(text)
