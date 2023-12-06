@@ -8,7 +8,9 @@ Turnitin: https://www.turnitin.com/help_pages/instructor_faq.asp?
 ### This project can by run through the following steps:
 1. Navigate to the bin of this project on your terminal.
 2. Type:
+
         python main.py -q <query> -e <eval>
+
 4. Query is the user question.
 5. Eval is to print the test performance of the search engine.
 
