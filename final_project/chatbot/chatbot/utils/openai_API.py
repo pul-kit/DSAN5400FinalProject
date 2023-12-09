@@ -1,4 +1,8 @@
 import openai
+import os
+
+
+os.environ['OPENAI_API_KEY'] = 'your_api_key'
 
 def openai_chat(api_key, messages):
     """ 
@@ -7,7 +11,7 @@ def openai_chat(api_key, messages):
     :param messages : (list) A list of message objects representing the conversation.
     :return : (str) OpenAI model's generated repsonse. 
     """
-    openai.api_key = api_key
+    openai.api_key = api_key  
 
     try:
         response = openai.ChatCompletion.create(
@@ -25,11 +29,10 @@ def generate(query, context):
     :param query : (str) The user's question or query.
     :param context : (str) Context to base the response on.
     """
-    api_key = "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"  
     messages = [
         {"role": "system", "content": "You are a helpful chatbot."},
         {"role": "user", "content": f"Please answer the question {query} base on this context: {context}. Please only use the knowledge from the context."}
     ]
 
-    response = openai_chat('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', messages)
+    response = openai_chat(os.getenv('OPENAI_API_KEY'), messages)
     print(response)
