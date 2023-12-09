@@ -29,12 +29,12 @@ if __name__ == '__main__':
     # Help user if input is help
     if user_input.lower() == 'help':
         display_bot_response("I am a bot that has been trained on FAQs about Canvas, Turnitin and Zoom. I don't have the capabliity to remember previous inputs.")
-        break
+        
             
     # Exit if input is exit 
     elif user_input.lower() == 'exit':
         display_bot_response("Goodbye!")
-        break
+        
         
     # Tell user data used if input is data
     elif user_input.lower() == 'data':
@@ -42,7 +42,7 @@ if __name__ == '__main__':
         display_bot_response("Zoom: https://uis.georgetown.edu/zoom/faq/")
         display_bot_response("Canvas: https://community.canvaslms.com/t5/Instructor-Guide/tkb-p/Instructor")
         display_bot_response("Turnitin: https://www.turnitin.com/help_pages/instructor_faq.asp?")
-        break
+        
 
     # Answer user's question
     else:
@@ -52,7 +52,7 @@ if __name__ == '__main__':
         answer = generate(user_input, context)
         print(answer)
         ask_for_rating()
-        break
+        
     
     
     #prints eval if user prompts    
