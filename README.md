@@ -1,6 +1,6 @@
 # DSAN5400FinalProject
 
-This program is intended to serve as a retrieval based chatbot that answers a users question about Canvas, Zoom or Turnitin usage. The answers have been scraped from online FAQs from the following websites - 
+This program is intended to serve as a retrieval based chatbot that answers a user's question about Canvas, Zoom or Turnitin usage. The answers have been scraped from online FAQs from the following websites - 
 Zoom: https://uis.georgetown.edu/zoom/faq/
 Canvas: https://community.canvaslms.com/t5/Instructor-Guide/tkb-p/Instructor
 Turnitin: https://www.turnitin.com/help_pages/instructor_faq.asp?
